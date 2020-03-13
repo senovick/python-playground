@@ -1,8 +1,7 @@
 import time
 from datetime import datetime as dt
 
-hosts_temp = "website-blocker/hosts"
-hosts = open("C:\Windows\System32\drivers\etc\hosts")
+hosts_file = open("C:\Windows\System32\drivers\etc\hosts")
 redirects = "127.0.0.1"
 website_list = [
     "www.facebook.com",
@@ -13,7 +12,7 @@ website_list = [
 ]
 
 while True:
-    file = open(hosts_temp, "r+")
+    file = open(hosts_file, "r+")
     content = file.read()
     now = dt.now()
     if dt(now.year, now.month, now.day, 8) < now < dt(now.year, now.month, now.day, 16):
