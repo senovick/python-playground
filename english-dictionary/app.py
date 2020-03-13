@@ -1,7 +1,7 @@
 import json
 import difflib
 
-data = json.load(open("data.json"))
+data = json.load(open("english-dictionary/data.json"))
 
 
 def getDefinition(word):

@@ -1,17 +1,11 @@
 import folium
-import pandas
+import json
 
 map = folium.Map(
     location=[38.8356645, -104.8326115], zoom_start=10, tiles="Stamen Terrain"
 )
 fg = folium.FeatureGroup(name="My Map")
-coordinates = [
-    {
-        "location": [38.8239219, -104.8334947],
-        "popup": "Colorado Springs Pioneers Museum",
-    },
-    {"location": [38.7925303, -104.8512365], "popup": "Broadmoor Hotel"},
-]
+coordinates = json.load(open("web-map/map-data.json"))
 for coord in coordinates:
     fg.add_child(
         folium.Marker(
@@ -21,4 +15,4 @@ for coord in coordinates:
         )
     )
 map.add_child(fg)
-map.save("map.html")
+map.save("web-map/map.html")
